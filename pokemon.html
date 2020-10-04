@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("bcg.jpg");
+            /* background-size: contain; */
+            display: flex;
+        }
+        main{
+            width: fit-content;
+            height: fit-content;
+            margin: 10vh;
+            padding: 5vh;
+            align-items: center;
+            justify-content: center;
+            justify-self: center;
+            align-self: center;
+            margin-right: 0vh;
+        }
+        textarea{
+            width: 60vh;
+            height: 30vh;
+            font-size: x-large;
+            resize: none;
+        }
+        form{
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #res{
+            background-image: url("poks.png");
+            background-size: cover;
+
+            width: 120vh;
+            height: 80vh;
+            margin-top: 10vh;
+        }
+        #translation{
+            width: 40vh;
+            height: 60vh;
+            background-color: black;
+            margin-top:10vh;
+            margin-left: 20vh;
+            border: 1px solid black;
+            border-radius: 20px;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+    <form>
+        <textarea placeholder="Wpisz treść pokemonowego pisma"></textarea><br>
+        <button type="button" onclick="convert()">Konwertuj na pismo pokemonów!</button><br>
+        <button type="reset">Zresetuj sobie obszar</button>
+    </form>
+    <br>
+   </main>
+   <div id="res">
+      <div id="translation"></div>
+   </div>
+   
+   <script>
+        "use strict";
+        function convert(){
+            let content = document.querySelector("textarea").value;
+            let result = document.querySelector("#translation");
+            let translated = "";
+            for(let i=0;i<content.length;i++){
+                if(i%2==0 || i==0){
+                    translated+=(content[i].toLowerCase());
+                }
+                else{
+                    translated+=(content[i].toUpperCase());
+                }
+            }
+            result.innerHTML = translated;
+        }
+    </script>
+</body>
+</html>
